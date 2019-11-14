@@ -1,0 +1,6 @@
+
+wsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(©öèíùÿÿÿÿ
+^squid:S1075"ARefactor your code to get this URI from a customizable parameter.(Á½¶d8ÒõÃÎæ-
+Ssquid:S2696"6Make the enclosing method "static" or remove this set.(Á½¶d8ò­Îæ-
+Ysquid:S2696
+"6Make the enclosing method "static" or remove this set.(™î²’ùÿÿÿÿ8ôü¤Îæ-

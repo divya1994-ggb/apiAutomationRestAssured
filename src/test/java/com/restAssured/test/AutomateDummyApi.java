@@ -1,6 +1,11 @@
 package com.restAssured.test;
 
+import com.restAssured.framework.RestAssuredConfiguration;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
+
+import static org.hamcrest.Matchers.*;
 
 import static io.restassured.RestAssured.given;
 
@@ -13,8 +18,42 @@ import static io.restassured.RestAssured.given;
  */
 public class AutomateDummyApi {
 
+    // API URL: http://dummy.restapiexample.com/api/v1/employees
     @Test
     public void validateDummyApiStatusCode(){
-        given().get("http://dummy.restapiexample.com/api/v1/employee/1").then().statusCode(200).log().all();
+        given().get("http://dummy.restapiexample.com/api/v1/employees").then().statusCode(200).log().all();
     }
+
+    // API URL: https://reqres.in/api/users?page=2
+    @Test
+    public void validateDummyApiStatusCodeWithQueryParameter(){
+        RequestSpecification requestSpecification = new RestAssuredConfiguration().getRequestSpecification();
+        requestSpecification.queryParam("page",2).log().all();
+        given().spec(requestSpecification).get("https://reqres.in/api/users").then().statusCode(200).log().all();
+
+    }
+
+    //http://dummy.restapiexample.com/api/v1/employee/1
+    @Test
+    public void validateDummyApiStatusCodeWithPathParameter(){
+        given()
+                .pathParam("country", "Finland")
+                .when()
+                .get("http://restcountries.eu/rest/v1/name/{country}").then().statusCode(200).log().all();
+
+    }
+
+    @Test
+    public void validateDummyApiResponse(){
+        String userId = given()
+                .get("https://jsonplaceholder.typicode.com/posts/1/")
+                .then()
+                .contentType(ContentType.JSON).extract().response().jsonPath().getString("userId");
+
+        assert userId.equals("1");
+
+    }
+
+
+
 }
