@@ -7,3 +7,13 @@ Prerequisite:
 3- Basics of API
 4- Test Ng
 5- Github
+
+
+
+Test Ng mave repo link
+
+https://mvnrepository.com/artifact/org.testng/testng/6.9.13.6
+
+Rest Assured maven dependencies
+
+https://github.com/rest-assured/rest-assured/wiki/GettingStarted
