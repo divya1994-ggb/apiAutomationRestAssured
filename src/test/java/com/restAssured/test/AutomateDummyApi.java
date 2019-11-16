@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.*;
 import static io.restassured.RestAssured.given;
 
 /**
- * @author krishna
+ * @author Divya
  *          Here is a simple example where
  *          we are trying automate this API TESTING
  *          If HTTP_STATUS_CODE IS 200 , it means API is giving response
@@ -21,6 +21,7 @@ public class AutomateDummyApi {
     // API URL: http://dummy.restapiexample.com/api/v1/employees
     @Test
     public void validateDummyApiStatusCode(){
+        //this is my first comment
         given().get("http://dummy.restapiexample.com/api/v1/employees").then().statusCode(200).log().all();
     }
 
